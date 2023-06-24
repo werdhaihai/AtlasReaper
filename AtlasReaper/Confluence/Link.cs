@@ -21,15 +21,21 @@ namespace AtlasReaper.Confluence
                     {
                         linkMessage += "<ac:link><ri:user ri:account-id=\"" + at + "\" /></ac:link>";
                     }
-                    linkMessage += "</p>";
+                    if (options.Message != null)
+                    {
+                        linkMessage += " " + options.Message;
+                    }
+                    linkMessage += " <a href=\"" + options.Link + "\">" + options.Text + "</a></p>";
                 }
-                if (options.Message != null)
+                else if (options.Message != null && options.At == null)
                 {
-                    linkMessage += options.Message;
+                    linkMessage += "<p>" + options.Message;
+                    linkMessage += " <a href=\"" + options.Link + "\">" + options.Text + "</a></p>";
                 }
-
-                linkMessage += " <a href=\"" + options.Link + "\">" + options.Text + "</a>";
-                
+                else
+                {
+                    linkMessage += " <a href=\"" + options.Link + "\">" + options.Text + "</a>";
+                }
 
                 // Build page url
                 string pageUrl = options.Url + "/wiki/api/v2/pages/" + options.Page + "?body-format=storage";
