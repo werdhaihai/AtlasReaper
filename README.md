@@ -1,6 +1,8 @@
 # AtlasReaper
 
-AtlasReaper is a command-line tool developed for offensive security purposes, primarily focused on reconnaissance of Confluence and Jira. It also provides various features that can be helpful for tasks such as credential farming and social engineering. The tool is written in C#.
+AtlasReaper is a command-line tool developed for offensive security purposes, primarily focused on reconnaissance of Confluence and Jira. It also provides various features that can be helpful for tasks such as credential farming and social engineering. The tool is written in C#. 
+
+Blog post: [Sowing Chaos and Reaping Rewards in Confluence and Jira](https://medium.com/specter-ops-posts/sowing-chaos-and-reaping-rewards-in-confluence-and-jira-7a90ba33bf62)
 
 ```
                                                    .@@@@
@@ -83,7 +85,16 @@ Here are a few examples of how to use AtlasReaper:
 - Create a new issue in Jira:
     
     `.\AtlasReaper.exe jira createissue --project "PROJ" --issue-type Task --message "I can't access this link from my host"  --url $url --cookie $cookie`
-    
+
+## Authentication
+
+Confluence and Jira can be configured to allow anonymous access. You can check this by supplying omitting the -c/--cookie from the commands.
+
+In the event authentication is required, you can dump cookies from a user's browser with [SharpChrome]() or another similar tool.
+
+1. `.\SharpChrome.exe cookies /showall`
+
+2. Look for any cookies scoped to the `*.atlassian.net` named `cloud.session.token` or  `tenant.session.token`
 
 ## Limitations
 
