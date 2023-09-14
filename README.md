@@ -4,6 +4,8 @@ AtlasReaper is a command-line tool developed for offensive security purposes, pr
 
 Blog post: [Sowing Chaos and Reaping Rewards in Confluence and Jira](https://medium.com/specter-ops-posts/sowing-chaos-and-reaping-rewards-in-confluence-and-jira-7a90ba33bf62)
 
+Detailed usage instructions can be found on the repo's [wiki](https://github.com/werdhaihai/AtlasReaper/wiki)
+
 ```
                                                    .@@@@
                                                @@@@@
